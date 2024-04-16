@@ -1,0 +1,29 @@
+// README
+
+** Check for the system Arch :
+>> uname -a
+
+** Get Hostname
+>> hostname
+>> hostnamectl hostname [name] 
+
+// PASSWORD POLICY
+
+** change pass : passwd
+** man     : PAM_PWQUALITY
+** Package : pam_cracklib
+** config  : /etc/pam.d/common-password
+** comand  : sudo chage --list
+
+// PASSWORD EXPIRATION
+
+** link    : https://www.redhat.com/sysadmin/password-expiration-date-linux
+** config  : /etc/login.defs
+
+// USER CRUD
+useradd login
+userdel login
+list user : awk -F: '{ print $1}' /etc/passwd
+
+// SUDO CONFIG
+** man    : sudoers
