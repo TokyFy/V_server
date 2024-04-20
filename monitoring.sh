@@ -27,5 +27,5 @@ echo -e \
 # Connexions TCP : $TCP\n\
 # User log       : $USER_LOGED\n\
 # Network        : IP $IP ($MAC)\n\
-# Sudo           : $NSUDO cmd\n" 
+# Sudo           : $NSUDO cmd\n" | wall 
 
