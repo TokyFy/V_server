@@ -5,7 +5,7 @@ CPUp="$(awk '/^physical id/ && s[$NF]++==0' /proc/cpuinfo | wc -l)"
 CPUv="$(grep -E 'processor' /proc/cpuinfo | wc -l)"
 DISKu="$(df -h | awk '$NF=="/"{printf "%s/%s (%s)\n", $3,$2,$5}')"
 MEMORYu="$(free -m | awk 'NR==2{printf "%s/%sMB (%.2f%%)\n", $3,$2,$3/$2*100}')"
-CPULOAD="$(top -n 1 | grep "Cpu(s)" | awk '{print $2 + $4}')"
+CPULOAD="$(uptime | awk -F'average:' '{print $2}' | awk -F',' '{print $1 * 100}' | tr -d ' ')"
 LAST_BOOT="$(uptime -s)"
 LVM="$(lsblk | grep -q 'lvm' && echo "yes" || echo "no")"
 TCP="$(ss -t -a | grep 'ESTAB' | wc -l)";
